@@ -1,27 +1,25 @@
-function [timber, notTimber] = FindTimber(img, estimator)
+function [timber] = FindTimber(img, estimator)
 
     circles = CutCirclesFromImage(img);
     
     timber = [];
-    notTimber = [];
-    
+   
     for i = 1:numel(circles)
         cutImg = circles(i).cutImg;
-        metric = circles(i).metric;
         features = ComputeFeatures(cutImg);
         prediction = predict(estimator, ...
                              features);
-        if(prediction)
+        if (prediction)
             timber = [timber circles(i)];
-        else
-            notTimber = [notTimber circles(i)];
         end
     end
-    
+  
+    %chPointsX = []; 
+    %chPointsY = [];
     timber = DeleteOverlapCircles(timber);
-    timber = FindTimberStackArea(timber);
+    [timber, chPointsX, chPointsY] = FindTimberStackArea(timber);
     
     %% Visualisation.
-    VisImg(img, timber, 'b');
+    VisImg(img, timber, chPointsX, chPointsY, 'b');
 end
 

@@ -1,4 +1,4 @@
-function [] = VisImg(img, circles, col)
+function [] = VisImg(img, circles, chPointsX, chPointsY, col)
     centers = [];
     radiuses = [];
     
@@ -10,5 +10,6 @@ function [] = VisImg(img, circles, col)
     imshow(img)
     hold on 
     viscircles(centers, radiuses, 'EdgeColor', col);
+    plot(chPointsX, chPointsY, 'r-');
 end
 
