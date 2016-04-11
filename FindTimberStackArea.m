@@ -16,7 +16,7 @@ function [circles, chPointsX, chPointsY] = FindTimberStackArea(circles)
     pointsX = [];
     pointsY = [];
     for i = 1:numel(circles)
-        for angle = 0:360
+        for angle = 0:30:360
             pointsX = [pointsX (circles(i).center(1) ...
                        + circles(i).radius * cosd(angle))];
             pointsY = [pointsY circles(i).center(2) ...

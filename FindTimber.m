@@ -1,5 +1,4 @@
-function [timber] = FindTimber(img, estimator)
-
+function timber = FindTimber(img, estimator)
     circles = CutCirclesFromImage(img);
     
     timber = [];
@@ -9,17 +8,17 @@ function [timber] = FindTimber(img, estimator)
         features = ComputeFeatures(cutImg);
         prediction = predict(estimator, ...
                              features);
-        if (prediction)
+        if prediction
             timber = [timber circles(i)];
         end
     end
   
-    %chPointsX = []; 
-    %chPointsY = [];
     timber = DeleteOverlapCircles(timber);
     [timber, chPointsX, chPointsY] = FindTimberStackArea(timber);
+    points = findWeakTimberInStack(img, chPointsX, chPointsY);
     
     %% Visualisation.
-    VisImg(img, timber, chPointsX, chPointsY, 'b');
+    VisImg(img, timber, chPointsX, chPointsY, points, 'b');
+    
 end
 
