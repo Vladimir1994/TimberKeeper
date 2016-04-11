@@ -31,7 +31,5 @@ function [circles] = CutCirclesFromImage(img)
         cutImg = img(top:bottom, left:right, :); 
         circles(i).cutImg = cutImg; 
     end
-    
-    %VisImg(img, circles, 'b');
 end
 
