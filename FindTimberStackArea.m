@@ -1,4 +1,4 @@
-function [circles, chPointsX, chPointsY] = FindTimberStackArea(circles)
+function [circles, chPointsX, chPointsY] = findTimberStackArea(circles)
     addpath('dbscan/');
     
     [idx n] = dbscanCircles(circles, 2);

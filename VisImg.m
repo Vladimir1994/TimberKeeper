@@ -1,4 +1,4 @@
-function [] = VisImg(img, circles, chPointsX, chPointsY, points, col)
+function [] = visImg(img, circles, chPointsX, chPointsY, points, col)
     centers = [];
     radiuses = [];
     

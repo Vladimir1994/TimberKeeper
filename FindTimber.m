@@ -1,4 +1,4 @@
-function timber = FindTimber(img, estimator)
+function timber = findTimber(img, estimator)
     circles = CutCirclesFromImage(img);
     
     timber = [];

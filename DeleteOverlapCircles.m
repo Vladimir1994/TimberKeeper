@@ -1,4 +1,4 @@
-function [circles] = DeleteOverlapCircles(circles)
+function [circles] = deleteOverlapCircles(circles)
     radiuses = zeros(length(circles), 1);
     
     for i = 1:length(circles)

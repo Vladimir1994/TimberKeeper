@@ -1,4 +1,4 @@
-function [features] = ComputeFeatures(img)
+function [features] = computeFeatures(img)
     addpath('sfta/');
     [height, length, z] = size(img);
     colorTransform = makecform('srgb2lab');

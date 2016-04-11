@@ -1,4 +1,4 @@
-function points = FindWeakTimberInStack(img, chPointsX, chPointsY)   
+function points = findWeakTimberInStack(img, chPointsX, chPointsY)   
     points = [];
     for y = floor(min(chPointsY)):10:floor(max(chPointsY))
         for x = floor(min(chPointsX)):10:floor(max(chPointsX))
