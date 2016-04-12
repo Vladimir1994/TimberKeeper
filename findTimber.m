@@ -18,7 +18,7 @@ function timber = findTimber(img, estimator)
     points = [];
     
     %% Visualisation.
-    VisImg(img, timber, chPointsX, chPointsY, points, 'b');
+    visImg(img, timber, chPointsX, chPointsY, points, 'b');
     
 end
 
