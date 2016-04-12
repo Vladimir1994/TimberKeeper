@@ -4,7 +4,7 @@ function [circles] = cutCirclesFromImage(img)
     HoughSens = .965;
     HoughEdgeThreshold = 0.1;
       
-    [imgPrerocessed] = PreprocessImage(img);
+    [imgPrerocessed] = preprocessImage(img);
     
     addpath('findcircles/');
                                                   
