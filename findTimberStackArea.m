@@ -1,4 +1,4 @@
-function [circles, chPointsX, chPointsY] = findTimberStackArea(circles)
+function circles = findTimberStackArea(circles)
     addpath('dbscan/');
     
     [idx n] = dbscanCircles(circles, 2);
@@ -12,19 +12,5 @@ function [circles, chPointsX, chPointsY] = findTimberStackArea(circles)
     end
     [~, biggestClusterIdx] = max(clusterSizes);
     circles = circles(idx == biggestClusterIdx);
-    
-    pointsX = [];
-    pointsY = [];
-    for i = 1:numel(circles)
-        for angle = 0:30:360
-            pointsX = [pointsX (circles(i).center(1) ...
-                       + circles(i).radius * cosd(angle))];
-            pointsY = [pointsY circles(i).center(2) ...
-                       + circles(i).radius * sind(angle)];
-        end
-    end
-    ch = convhull(pointsX, pointsY);
-    chPointsX = pointsX(ch);
-    chPointsY = pointsY(ch);
 end
 

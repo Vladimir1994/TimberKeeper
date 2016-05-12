@@ -6,7 +6,7 @@ function D = sfta(I, nt)
 
     I = imadjust(I);
     
-    T = otsurec( I, nt );
+    T = otsurec(I, nt);
     dSize = numel(T) * 8;
     D = zeros(1, dSize);
     pos = 1;
@@ -49,7 +49,7 @@ function D = sfta(I, nt)
         D(pos) = mean(vals);
         pos = pos + 1;
 
-        D(pos) = numel(vals)./(size(I, 1) .* size(I, 2));
+        D(pos) = numel(vals) ./ (size(I, 1) .* size(I, 2));
         pos = pos + 1;
         
         [~, D(pos)] = bwlabel(Ib);
